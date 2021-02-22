@@ -15596,3 +15596,30 @@ compression ratios.")
     (synopsis "Type level booleans")
     (description "singletons package provides similar functionality, but it has tight dependency constraints.")
     (license license:bsd-3)))
+
+(define-public ghc-lukko
+  (package
+    (name "ghc-lukko")
+    (version "0.1.1.3")
+    (outputs '("out" "static" "doc"))
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/lukko/lukko-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32 "07xb926kixqv5scqdl8w34z42zjzdpbq06f0ha3f3nm3rxhgn3m8"))))
+    (build-system haskell-build-system)
+    (inputs
+      `(("ghc-async" ,ghc-async)
+        ("ghc-singleton-bool" ,ghc-singleton-bool)
+        ("ghc-tasty" ,ghc-tasty)
+        ("ghc-tasty-expected-failure" ,ghc-tasty-expected-failure)
+        ("ghc-tasty-hunit" ,ghc-tasty-hunit)
+        ("ghc-temporary" ,ghc-temporary)))
+    (home-page "https://hackage.haskell.org/package/lukko")
+    (synopsis "file locking library")
+    (description "This package provides access to platform dependent file locking APIs.")
+    (license license:bsd-3)))    
