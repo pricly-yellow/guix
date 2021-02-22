@@ -15551,3 +15551,23 @@ Zstandard compression algorithm, a fast lossless compression algorithm
 targeting real-time compression scenarios at zlib-level and better
 compression ratios.")
     (license license:bsd-3)))
+
+(define-public ghc-dec
+  (package
+    (name "ghc-dec")
+    (version "0.0.4")
+    (outputs '("out" "static" "doc"))
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/dec/dec-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32 "0yslffafmqfkvhcw2arpc53hfmn1788z85ss9lxnbclr29lbvzgc"))))
+    (build-system haskell-build-system)
+    (home-page "https://hackage.haskell.org/package/singleton-bool")
+    (synopsis "Dec type")
+    (description "This package provides a Dec type.")
+    (license license:bsd-3)))
