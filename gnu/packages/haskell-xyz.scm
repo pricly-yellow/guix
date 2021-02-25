@@ -793,7 +793,7 @@ Haskell @code{ByteString}s.")
 (define-public ghc-base-compat
   (package
     (name "ghc-base-compat")
-    (version "0.10.5")
+    (version "0.11.2")
     (source
      (origin
        (method url-fetch)
@@ -803,13 +803,9 @@ Haskell @code{ByteString}s.")
              ".tar.gz"))
        (sha256
         (base32
-         "0hgvlqcr852hfp52jp99snhbj550mvxxpi8qn15d8ml9aqhyl2lr"))))
+         "1nyvkaij4m01jndw72xl8931czz1xp6jpnynpajabys2ahabb9jk"))))
     (build-system haskell-build-system)
     (outputs '("out" "static" "doc"))
-    (native-inputs
-     `(("ghc-quickcheck" ,ghc-quickcheck)
-       ("ghc-hspec" ,ghc-hspec)
-       ("hspec-discover" ,hspec-discover)))
     (home-page "https://hackage.haskell.org/package/base-compat")
     (synopsis "Haskell compiler compatibility library")
     (description "This library provides functions available in later versions
