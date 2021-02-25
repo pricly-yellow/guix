@@ -489,7 +489,7 @@ use HUnit assertions as QuickCheck properties.")
 (define-public ghc-quickcheck
   (package
     (name "ghc-quickcheck")
-    (version "2.13.2")
+    (version "2.14.2")
     (outputs '("out" "static" "doc"))
     (source
      (origin
@@ -500,11 +500,11 @@ use HUnit assertions as QuickCheck properties.")
              ".tar.gz"))
        (sha256
         (base32
-         "0426j43af8v3qmdjjqxivazsvr3a2brac8yw09vpgpjkb2m0nmkv"))))
+         "1wrnrm9sq4s0bly0q58y80g4153q45iglqa34xsi2q3bd62nqyyq"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-random" ,ghc-random)
-       ("ghc-splitmix" ,ghc-splitmix-bootstrap)))
+       ("ghc-splitmix" ,ghc-splitmix)))
     (home-page "https://github.com/nick8325/quickcheck")
     (synopsis "Automatic testing of Haskell programs")
     (description
