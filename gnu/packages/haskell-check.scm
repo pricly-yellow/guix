@@ -156,11 +156,10 @@ output file should be identical to the corresponding @code{golden} file, which
 contains the correct result for the test.")
     (license license:expat)))
 
-
 (define-public ghc-tasty
   (package
     (name "ghc-tasty")
-    (version "1.4.1")
+    (version "1.3.1")
     (source
      (origin
        (method url-fetch)
@@ -170,7 +169,7 @@ contains the correct result for the test.")
              ".tar.gz"))
        (sha256
         (base32
-         "0ixfsjjdps0an6iy8cqb41h6kjjli9sg0xw531jwci8xlr7g0a17"))))
+         "1p8lq0yd1880knnygv4spgjj3j2mi8bawd018vcxy9rml7sdzm8w"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-tagged" ,ghc-tagged)
