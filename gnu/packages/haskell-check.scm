@@ -504,7 +504,7 @@ use HUnit assertions as QuickCheck properties.")
     (build-system haskell-build-system)
     (inputs
      `(("ghc-random" ,ghc-random)
-       ("ghc-splitmix" ,ghc-splitmix)))
+       ("ghc-splitmix" ,ghc-splitmix-bootstrap)))
     (home-page "https://github.com/nick8325/quickcheck")
     (synopsis "Automatic testing of Haskell programs")
     (description
