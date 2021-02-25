@@ -12388,7 +12388,7 @@ mainstream languages.")
 (define-public ghc-splitmix
   (package
     (name "ghc-splitmix")
-    (version "0.0.3")
+    (version "0.1.0.3")
     (source
      (origin
        (method url-fetch)
@@ -12396,14 +12396,18 @@ mainstream languages.")
                            "splitmix/splitmix-" version ".tar.gz"))
        (sha256
         (base32
-         "1k0amgkz7rvyz3lnw7m786ilnr1cibwhx9sc4qynq329gxan5r7w"))))
+         "0das5n44dhlcv5i233iakx37d17kidqvhrvp6w9nd7hc015ry026"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-random" ,ghc-random)))
     (native-inputs
      `(("ghc-hunit" ,ghc-hunit)
        ("ghc-async" ,ghc-async)
+       ("ghc-base-compat" ,ghc-base-compat)
        ("ghc-base-compat-batteries" ,ghc-base-compat-batteries)
+       ("ghc-math-functions" ,ghc-math-functions)
+       ("ghc-test-framework" ,ghc-test-framework)
+       ("ghc-test-framework-hunit" ,ghc-test-framework-hunit)
        ("ghc-tf-random" ,ghc-tf-random)
        ("ghc-vector" ,ghc-vector)))
     (home-page "https://hackage.haskell.org/package/splitmix")
