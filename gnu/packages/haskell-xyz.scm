@@ -816,7 +816,7 @@ pragmas in your code.")
 (define-public ghc-base-compat-batteries
   (package
     (name "ghc-base-compat-batteries")
-    (version "0.10.5")
+    (version "0.11.2")
     (source
      (origin
        (method url-fetch)
@@ -825,7 +825,7 @@ pragmas in your code.")
                            version ".tar.gz"))
        (sha256
         (base32
-         "1vkhc639vqiv5p39jn1v312z32i7yk5q2lf0ap4jxl1v8p8wyp8p"))))
+         "08rh9nlm9ir28fm42xim06ga8qwdqdcvkbb5ckz99bwnmajndq1i"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-base-compat" ,ghc-base-compat)))
@@ -833,9 +833,6 @@ pragmas in your code.")
      `(("ghc-hspec" ,ghc-hspec)
        ("ghc-quickcheck" ,ghc-quickcheck)
        ("hspec-discover" ,hspec-discover)))
-    (arguments
-     `(#:cabal-revision
-       ("1" "15sn2qc8k0hxbb2nai341kkrci98hlhzcj2ci087m0zxcg5jcdbp")))
     (home-page "https://hackage.haskell.org/package/base-compat-batteries")
     (synopsis "base-compat with extra batteries")
     (description "This library provides functions available in later
