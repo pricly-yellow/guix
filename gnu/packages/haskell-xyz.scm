@@ -12256,7 +12256,7 @@ provided.  Skylighting is intended to be the successor to highlighting-kate.")
 (define-public ghc-smallcheck
   (package
     (name "ghc-smallcheck")
-    (version "1.1.5")
+    (version "1.2.1")
     (source
      (origin
        (method url-fetch)
@@ -12266,7 +12266,7 @@ provided.  Skylighting is intended to be the successor to highlighting-kate.")
              ".tar.gz"))
        (sha256
         (base32
-         "195fj7w3v03d1y1nm2ylavzrwxjcdbq0lb6zsw1dwyx5jmwfc84h"))))
+         "0sf87zjlrgjw7q6a0499g2ywx66zvpv6rg6953fjc18fnl8rs7z4"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-logict" ,ghc-logict)))
