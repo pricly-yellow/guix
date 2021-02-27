@@ -2988,7 +2988,7 @@ package.")
 (define-public ghc-data-fix
   (package
     (name "ghc-data-fix")
-    (version "0.2.0")
+    (version "0.3.1")
     (source
      (origin
        (method url-fetch)
@@ -2996,9 +2996,11 @@ package.")
              "mirror://hackage/package/data-fix/"
              "data-fix-" version ".tar.gz"))
        (sha256
-        (base32 "14hk6hq5hdb3l5bhmzhw086jpzlvp9qbw9dzw30wlz5jbh2ihmvy"))))
+        (base32 "0yfciggx8l82nfpv40w2673glnl9nnbh269kpfbw28i98x0c0icv"))))
     (build-system haskell-build-system)
     (home-page "https://github.com/spell-music/data-fix")
+     (inputs
+     `(("ghc-hashable" ,ghc-hashable)))
     (synopsis "Fixpoint data types")
     (description
      "Fixpoint types and recursion schemes.  If you define your AST as
