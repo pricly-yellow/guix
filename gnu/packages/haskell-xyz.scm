@@ -590,7 +590,7 @@ permissions while atomically writing to a file.")
 (define-public ghc-attoparsec
   (package
     (name "ghc-attoparsec")
-    (version "0.13.2.3")
+    (version "0.13.2.5")
     (source
      (origin
        (method url-fetch)
@@ -600,21 +600,8 @@ permissions while atomically writing to a file.")
              ".tar.gz"))
        (sha256
         (base32
-         "1ngjn9h5n0vyki0m2jir4mg85875ysswy9hznpmj1r856mqwc6ix"))))
+         "0vv88m5m7ynjrg114psp4j4s69f1a5va3bvn293vymqrma7g7q11"))))
     (build-system haskell-build-system)
-    (arguments
-     `(#:phases
-       (modify-phases %standard-phases
-         (add-after 'unpack 'patch-for-newer-quickcheck
-           (lambda _
-             (substitute* "attoparsec.cabal"
-               (("QuickCheck >= 2\\.7 && < 2\\.10")
-                "QuickCheck >= 2.7 && < 2.12"))
-             ;; This test fails because of the newer QuickCheck:
-             ;; <https://github.com/bos/attoparsec/issues/134>.
-             (substitute* "tests/QC/ByteString.hs"
-               ((", testProperty \"satisfyWith\" satisfyWith")
-                "")))))))
     (inputs
      `(("ghc-scientific" ,ghc-scientific)))
     (native-inputs
