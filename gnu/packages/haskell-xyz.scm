@@ -15442,7 +15442,7 @@ modifying, and extracting files from zip archives in Haskell.")
 (define-public ghc-zlib
   (package
     (name "ghc-zlib")
-    (version "0.6.2.1")
+    (version "0.6.2.3")
     (outputs '("out" "static" "doc"))
     (source
      (origin
@@ -15453,18 +15453,8 @@ modifying, and extracting files from zip archives in Haskell.")
              ".tar.gz"))
        (sha256
         (base32
-         "1l11jraslcrp9d4wnhwfyhwk4fsiq1aq8i6vj81vcq1m2zzi1y7h"))))
+         "125wbayk8ifp0gp8cb52afck2ziwvqfrjzbmwmy52g6bz7fnnzw0"))))
     (build-system haskell-build-system)
-    (arguments
-     `(#:extra-directories ("zlib")
-       #:phases
-       (modify-phases %standard-phases
-         (add-before 'configure 'strip-test-framework-constraints
-           (lambda _
-             (substitute* "zlib.cabal"
-               (("tasty            >= 0\\.8 && < 0\\.12") "tasty")
-               (("tasty-hunit      >= 0\\.8 && < 0\\.10") "tasty-hunit")
-               (("tasty-quickcheck == 0\\.8\\.\\*") "tasty-quickcheck")))))))
     (inputs `(("zlib" ,zlib)))
     (native-inputs
      `(("ghc-quickcheck" ,ghc-quickcheck)
