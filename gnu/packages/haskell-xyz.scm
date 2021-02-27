@@ -4123,7 +4123,7 @@ excluding @file{.lhs} files.")
 (define-public ghc-exceptions
   (package
     (name "ghc-exceptions")
-    (version "0.10.3")
+    (version "0.10.4")
     (source
      (origin
        (method url-fetch)
@@ -4133,8 +4133,11 @@ excluding @file{.lhs} files.")
              ".tar.gz"))
        (sha256
         (base32
-         "1w25j4ys5s6v239vbqlbipm9fdwxl1j2ap2lzms7f7rgnik5ir24"))))
+         "1kw4pmx7j7zwbdwm0dyn9rcs6kp4byfxy48861yxdz6gam1zn2sd"))))
     (build-system haskell-build-system)
+    (arguments
+     `(#:cabal-revision
+       ("1" "0b5m01nmaqzvvm1d07b3dnmcn47pmy943lydb2m7ibhilqkfya8p")))
     (native-inputs
      `(("ghc-quickcheck" ,ghc-quickcheck)
        ("ghc-test-framework" ,ghc-test-framework)
