@@ -5420,7 +5420,7 @@ Happy works in a similar way to the yacc tool for C.")
 (define-public ghc-hashable
   (package
     (name "ghc-hashable")
-    (version "1.2.7.0")
+    (version "1.3.1.0")
     (outputs '("out" "static" "doc"))
     (source
      (origin
@@ -5431,11 +5431,8 @@ Happy works in a similar way to the yacc tool for C.")
              ".tar.gz"))
        (sha256
         (base32
-         "1gra8gq3kb7b2sd845h55yxlrfqx3ii004c6vjhga8v0b30fzdgc"))))
+         "1i57iibad5gjk88yq1svi35mjcbgjmms7jzd28wva8f598x84qc0"))))
     (build-system haskell-build-system)
-    (arguments
-     `(#:cabal-revision
-       ("1" "197063dpl0wn67dp7a06yc2hxp81n24ykk7klbjx0fndm5n87dh3")))
     (inputs
      `(("ghc-random" ,ghc-random)))
     (native-inputs
