@@ -42,7 +42,7 @@
 (define-public ghc-tasty-ant-xml
   (package
     (name "ghc-tasty-ant-xml")
-    (version "1.1.6")
+    (version "1.1.7")
     (source
      (origin
        (method url-fetch)
@@ -52,7 +52,7 @@
              ".tar.gz"))
        (sha256
         (base32
-         "13qqpl1prr9dda87dp45mqybay24n8rhxxgvpc9j34kh72g8j5qw"))))
+         "01br1jqmin3kislw59rdsgl4pggdf8miwddifj654dllfgg148vg"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-generic-deriving" ,ghc-generic-deriving)
