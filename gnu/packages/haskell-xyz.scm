@@ -6515,7 +6515,7 @@ minimal overhead.  No FFI required.")
 (define-public ghc-integer-logarithms
   (package
     (name "ghc-integer-logarithms")
-    (version "1.0.3")
+    (version "1.0.3.1")
     (source
      (origin
        (method url-fetch)
@@ -6524,16 +6524,8 @@ minimal overhead.  No FFI required.")
                            version ".tar.gz"))
        (sha256
         (base32
-         "05pc5hws66csvcvfswlwcr2fplwn1lbssvwifjxkbbwqhq0n5qjs"))))
+         "0zzapclfabc76g8jzsbsqwdllx2zn0gp4raq076ib6v0mfgry2lv"))))
     (build-system haskell-build-system)
-    (arguments
-     `(#:phases
-       (modify-phases %standard-phases
-         (add-before 'configure 'update-constraints
-           (lambda _
-             (substitute* "integer-logarithms.cabal"
-               (("tasty >= 0\\.10 && < 1\\.1")
-                "tasty >= 0.10 && < 1.2")))))))
     (native-inputs
      `(("ghc-quickcheck" ,ghc-quickcheck)
        ("ghc-smallcheck" ,ghc-smallcheck)
