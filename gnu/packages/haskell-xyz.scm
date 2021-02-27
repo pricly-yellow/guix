@@ -5148,7 +5148,7 @@ tools are not needed to actually run Gtk2Hs programs.")
 (define-public ghc-hackage-security
   (package
     (name "ghc-hackage-security")
-    (version "0.5.3.0")
+    (version "0.6.0.1")
     (source
      (origin
        (method url-fetch)
@@ -5157,12 +5157,11 @@ tools are not needed to actually run Gtk2Hs programs.")
                            version ".tar.gz"))
        (sha256
         (base32
-         "08bwawc7ramgdh54vcly2m9pvfchp0ahhs8117jajni6x4bnx66v"))))
+         "05rgz31cmp52137j4jk0074z8lfgk8mrf2x56bzw28asmxrv8qli"))))
     (build-system haskell-build-system)
     (arguments
      `(#:cabal-revision
-       ("6" "1xs2nkzlvkdz8g27yzfxbjdbdadfmgiydnlpn5dm77cg18r495ay")
-       #:tests? #f)) ; Tests fail because of framework updates.
+       ("4" "06d4xqmpqarisxlm0sp87w2z9rl62p08z5ra5swkvfwn36i9zr15")))
     (inputs
      `(("ghc-base16-bytestring" ,ghc-base16-bytestring)
        ("ghc-base64-bytestring" ,ghc-base64-bytestring)
@@ -5171,7 +5170,10 @@ tools are not needed to actually run Gtk2Hs programs.")
        ("ghc-network" ,ghc-network)
        ("ghc-network-uri" ,ghc-network-uri)
        ("ghc-tar" ,ghc-tar)
-       ("ghc-zlib" ,ghc-zlib)))
+       ("ghc-zlib" ,ghc-zlib)
+       ("ghc-aeson" ,ghc-aeson)
+       ("ghc-unordered-containers" ,ghc-unordered-containers)
+       ("ghc-vector" ,ghc-vector)))
     (native-inputs
      `(("ghc-network-uri" ,ghc-network-uri)
        ("ghc-quickcheck" ,ghc-quickcheck)
