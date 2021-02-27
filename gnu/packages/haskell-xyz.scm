@@ -14391,7 +14391,7 @@ functions.")
 (define-public ghc-unordered-containers
   (package
     (name "ghc-unordered-containers")
-    (version "0.2.10.0")
+    (version "0.2.13.0")
     (outputs '("out" "static" "doc"))
     (source
      (origin
@@ -14401,7 +14401,7 @@ functions.")
              "/unordered-containers-" version ".tar.gz"))
        (sha256
         (base32
-         "0wy5hfrs880hh8hvp648bl07ws777n3kkmczzdszr7papnyigwb5"))))
+         "0mbvld5dym17jc13ycl862k73kg26y9khb8578w13cwfmdli7c46"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-chasingbottoms" ,ghc-chasingbottoms)
