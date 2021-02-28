@@ -5467,7 +5467,7 @@ combine hash values.")
 (define-public ghc-hashable-time
   (package
     (name "ghc-hashable-time")
-    (version "0.2.0.2")
+    (version "0.2.1")
     (source
      (origin
        (method url-fetch)
@@ -5477,12 +5477,12 @@ combine hash values.")
              ".tar.gz"))
        (sha256
         (base32
-         "1q7y4plqqwy5286hhx2fygn12h8lqk0y047b597sbdckskxzfqgs"))))
+         "1zw2gqagpbwq1hgx5rlvy6mhsnb15cxg3pmhawwv0ylfihmx2yxh"))))
     (build-system haskell-build-system)
-    (arguments
-     `(#:cabal-revision
-       ("2" "006phc5y9rrvsshdcmjmhxzxh8dpgs685mpqbkjm9c40xb1ydjbz")))
-    (inputs `(("ghc-hashable" ,ghc-hashable)))
+    (inputs
+      `(("ghc-hashable" ,ghc-hashable)
+      ("ghc-time-compat" ,ghc-time-compat)
+	))
     (home-page "https://hackage.haskell.org/package/hashable-time")
     (synopsis "Hashable instances for Data.Time")
     (description
