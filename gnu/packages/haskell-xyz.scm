@@ -10430,6 +10430,7 @@ Show instance.")
      ("ghc-semigroups" ,ghc-semigroups)
      ("ghc-tagged" ,ghc-tagged)
      ("ghc-transformers-compat" ,ghc-transformers-compat)))
+    (native-inputs `())
     (properties '((hidden? #t)))))
 
 (define-public ghc-process-extras
