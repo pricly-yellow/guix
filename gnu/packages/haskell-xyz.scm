@@ -10427,7 +10427,7 @@ Show instance.")
     (arguments `(#:tests? #f))
     (inputs
      `(("ghc-base-orphans" ,ghc-base-orphans)
-     ("ghc-semigroups" ,ghc-semigroups)
+     ("ghc-semigroups" ,ghc-semigroups-bootstrap)
      ("ghc-tagged" ,ghc-tagged)
      ("ghc-transformers-compat" ,ghc-transformers-compat)))
     (native-inputs `())
@@ -11592,7 +11592,7 @@ as sending some messages to the terminal - that has the following properties:
     (inputs
      `(("ghc-integer-logarithms" ,ghc-integer-logarithms)
        ("ghc-hashable" ,ghc-hashable)
-       ("ghc-primitive-bootstrap" ,ghc-primitive-bootstrap)))
+       ("ghc-primitive" ,ghc-primitive)))
     (native-inputs
      `(("ghc-tasty" ,ghc-tasty)
        ("ghc-tasty-ant-xml" ,ghc-tasty-ant-xml)
