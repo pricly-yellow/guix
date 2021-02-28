@@ -11592,7 +11592,7 @@ as sending some messages to the terminal - that has the following properties:
     (inputs
      `(("ghc-integer-logarithms" ,ghc-integer-logarithms)
        ("ghc-hashable" ,ghc-hashable)
-       ("ghc-primitive" ,ghc-primitive)))
+       ("ghc-primitive-bootstrap" ,ghc-primitive-bootstrap)))
     (native-inputs
      `(("ghc-tasty" ,ghc-tasty)
        ("ghc-tasty-ant-xml" ,ghc-tasty-ant-xml)
@@ -11618,7 +11618,7 @@ notation}.")
     (inputs
      `(("ghc-integer-logarithms" ,ghc-integer-logarithms-bootstrap)
        ("ghc-hashable" ,ghc-hashable)
-       ("ghc-primitive" ,ghc-primitive)))
+       ("ghc-primitive-bootstrap" ,ghc-primitive-bootstrap)))
     (native-inputs '())
     (properties '((hidden? #t)))))
 
