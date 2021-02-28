@@ -15435,6 +15435,8 @@ modifying, and extracting files from zip archives in Haskell.")
         (base32
          "125wbayk8ifp0gp8cb52afck2ziwvqfrjzbmwmy52g6bz7fnnzw0"))))
     (build-system haskell-build-system)
+    (arguments
+     `(#:extra-directories ("zlib")))
     (inputs `(("zlib" ,zlib)))
     (native-inputs
      `(("ghc-quickcheck" ,ghc-quickcheck)
