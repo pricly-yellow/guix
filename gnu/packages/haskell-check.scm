@@ -405,7 +405,7 @@ development.")
 (define-public ghc-quickcheck-instances
   (package
     (name "ghc-quickcheck-instances")
-    (version "0.3.22")
+    (version "0.3.25.2")
     (source
      (origin
        (method url-fetch)
@@ -415,11 +415,11 @@ development.")
              version ".tar.gz"))
        (sha256
         (base32
-         "14asr9r7da3w7p4hjj51w2yb002nz8x0np8hdz9z4yjvi60vyrax"))))
+         "0ihqbarl2ddrfgq3mq09lswwn8213qpw13g49qxs5mjkcm6gbk3h"))))
     (build-system haskell-build-system)
     (arguments
      `(#:cabal-revision
-       ("2" "1ia5fjhpg7rz793552v88gv2iqx7hl9mi2g09m0llasy1cpzc9jr")))
+       ("1" "0pmsq83jzf7gxr59h8j85121n6n0iqbl3smccl9v7n3gkp70kr2q")))
     (inputs
      `(("ghc-quickcheck" ,ghc-quickcheck)
        ("ghc-base-compat" ,ghc-base-compat)
@@ -432,6 +432,9 @@ development.")
        ("ghc-transformers-compat" ,ghc-transformers-compat)
        ("ghc-unordered-containers" ,ghc-unordered-containers)
        ("ghc-uuid-types" ,ghc-uuid-types)
+       ("ghc-data-fix" ,ghc-data-fix)
+       ("ghc-these" ,ghc-these)
+       ("ghc-strict" ,ghc-strict)
        ("ghc-vector" ,ghc-vector)))
     (home-page "https://github.com/aslatter/qc-instances")
     (synopsis "Common quickcheck instances")
