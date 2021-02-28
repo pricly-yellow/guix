@@ -14266,7 +14266,7 @@ constant-time:
 (define-public ghc-uniplate
   (package
     (name "ghc-uniplate")
-    (version "1.6.12")
+    (version "1.6.13")
     (source
      (origin
        (method url-fetch)
@@ -14276,8 +14276,11 @@ constant-time:
              ".tar.gz"))
        (sha256
         (base32
-         "1dx8f9aw27fz8kw0ad1nm6355w5rdl7bjvb427v2bsgnng30pipw"))))
+         "1lis5qcb5j7yzd1cqjaqpb6bmkyjfb7l4nhk3ykmcma4513cjxz7"))))
     (build-system haskell-build-system)
+    (arguments
+     `(#:cabal-revision
+       ("1" "1rvvzmi43gbrww0f17dzchm3g61zvm97arrfa5raljqb1mbibdy8")))
     (inputs
      `(("ghc-syb" ,ghc-syb)
        ("ghc-hashable" ,ghc-hashable)
