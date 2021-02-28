@@ -3837,6 +3837,9 @@ but is otherwise agnostic to:
         (base32
          "09yzki8ss56xhy9vggdw1rls86b2kf55hjl5wi0vbv02d8fxahq2"))))
     (build-system haskell-build-system)
+    (arguments
+     `(#:cabal-revision
+       ("1" "03bgnq55lc6f1nx4p662gidfsyyfm3xm4fi84h77wnsppxrpa5j1")))
     (inputs `(("ghc-bifunctors" ,ghc-bifunctors)
               ("ghc-exceptions" ,ghc-exceptions)
               ("ghc-free" ,ghc-free)
