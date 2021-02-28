@@ -13505,7 +13505,7 @@ package, and that's where the version number started.")
 (define-public ghc-these
   (package
     (name "ghc-these")
-    (version "1.0.1")
+    (version "1.1.1.1")
     (source
      (origin
        (method url-fetch)
@@ -13515,20 +13515,19 @@ package, and that's where the version number started.")
              ".tar.gz"))
        (sha256
         (base32
-         "1k0pi65g7cm9hzdw6my6bzz2zvddkmj1qs45ymqmi316bpiixk3r"))))
+         "027m1gd7i6jf2ppfkld9qrv3xnxg276587pmx10z9phpdvswk66p"))))
     (build-system haskell-build-system)
+    (arguments
+     `(#:cabal-revision
+       ("1"
+        "1bzi28jvaxil9rc6z1hkf87pfjsa3r5gfc9n0ixffnnv519cd0g9")))
     (inputs
      `(("ghc-base-compat" ,ghc-base-compat)
        ("ghc-hashable" ,ghc-hashable)
-       ("ghc-aeson" ,ghc-aeson)
        ("ghc-unordered-containers" ,ghc-unordered-containers)
        ("ghc-assoc" ,ghc-assoc)
        ("ghc-semigroupoids" ,ghc-semigroupoids)
        ("ghc-quickcheck" ,ghc-quickcheck)))
-    (arguments
-     `(#:cabal-revision
-       ("1"
-        "0923r86fnmgpx0msm68aszirh2n19nn5bccgjxfh2146jw4z7w3z")))
     (home-page
      "https://github.com/isomorphism/these")
     (synopsis "Either-or-both data type")
@@ -13557,7 +13556,7 @@ https://hackage.haskell.org/package/these-lens For lens combinators.
 http://hackage.haskell.org/package/monad-chronicle For transformers
 variant of @code{These}.
 @end itemize")
-    (license license:bsd-3)))
+  (license license:bsd-3)))
 
 (define-public ghc-threads
   (package
