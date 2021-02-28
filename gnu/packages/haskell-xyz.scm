@@ -10420,6 +10420,18 @@ Show instance.")
      "This package provides various primitive memory-related operations.")
     (license license:bsd-3)))
 
+(define-public ghc-primitive-bootstrap
+  (package
+    (inherit ghc-primitive)
+    (name "ghc-primitive-bootstrap")
+    (arguments `(#:tests? #f))
+    (inputs
+     `(("ghc-base-orphans" ,ghc-base-orphans)
+     ("ghc-semigroups" ,ghc-semigroups)
+     ("ghc-tagged" ,ghc-tagged)
+     ("ghc-transformers-compat" ,ghc-transformers-compat)))
+    (properties '((hidden? #t)))))
+
 (define-public ghc-process-extras
   (package
     (name "ghc-process-extras")
@@ -13394,7 +13406,7 @@ string metrics efficiently.")
         (base32 "0445r2nns6009fmq0xbfpyv7jpzwv0snccjdg7hwj4xk4z0cwc1f"))))
     (build-system haskell-build-system)
     (inputs
-     `(("ghc-primitive" ,ghc-primitive)
+     `(("ghc-primitive-bootstrap" ,ghc-primitive-bootstrap)
        ("ghc-random" ,ghc-random)))
     (home-page "https://hackage.haskell.org/package/tf-random")
     (synopsis "High-quality splittable pseudorandom number generator")
