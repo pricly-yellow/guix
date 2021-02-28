@@ -12754,15 +12754,18 @@ needed by various Haskell streaming data libraries, such as @code{conduit} and
 (define-public ghc-strict
   (package
     (name "ghc-strict")
-    (version "0.3.2")
+    (version "0.4.0.1")
     (source
      (origin
        (method url-fetch)
        (uri (string-append "https://hackage.haskell.org/package/strict/strict-"
                            version ".tar.gz"))
        (sha256
-        (base32 "08cjajqz9h47fkq98mlf3rc8n5ghbmnmgn8pfsl3bdldjdkmmlrc"))))
+        (base32 "0hb24a09c3agsq7sdv8r2b2jc2f4g1blg2xvj4cfadynib0apxnz"))))
     (build-system haskell-build-system)
+    (inputs
+     `(("ghc-hashable" ,ghc-hashable)
+       ("ghc-these" ,ghc-these)))
     (home-page "https://hackage.haskell.org/package/strict")
     (synopsis "Strict data types and String IO")
     (description
