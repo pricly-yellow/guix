@@ -10380,7 +10380,7 @@ Show instance.")
 (define-public ghc-primitive
   (package
     (name "ghc-primitive")
-    (version "0.6.4.0")
+    (version "0.7.1.0")
     (outputs '("out" "static" "doc"))
     (source
      (origin
@@ -10391,11 +10391,28 @@ Show instance.")
              ".tar.gz"))
        (sha256
         (base32
-         "0r0cda7acvplgwaxy69kviv4jp7kkfi038by68gj4yfx4iwszgjc"))))
+         "1w53i4mk248g58xrffmksznr4nmn2bbbycajzpcqfxx5ybyyrsvb"))))
     (build-system haskell-build-system)
     (arguments
      `(#:cabal-revision
-       ("1" "18a14k1yiam1m4l29rin9a0y53yp3nxvkz358nysld8aqwy2qsjv")))
+       ("2" "1m08slj8m596z4pqsw3ag25ijhzlv9ki809ydh4nbin141bpsdgn")
+     #:phases
+       (modify-phases %standard-phases
+         (add-before 'configure 'update-constraints
+           (lambda _
+             (substitute* "primitive.cabal"
+               (("tasty \\^>= 1\\.2")
+                "tasty >= 1.2 && <=1.4")))))))
+    (inputs
+     `(("ghc-base-orphans" ,ghc-base-orphans)
+     ("ghc-semigroups" ,ghc-semigroups)
+     ("ghc-tagged" ,ghc-tagged)
+     ("ghc-transformers-compat" ,ghc-transformers-compat)))
+    (native-inputs
+      `(("ghc-quickcheck" ,ghc-quickcheck)
+     ("ghc-quickcheck-classes-base" ,ghc-quickcheck-classes-base)
+     ("ghc-tasty" ,ghc-tasty)
+     ("ghc-tasty-quickcheck" ,ghc-tasty-quickcheck)))
     (home-page
      "https://github.com/haskell/primitive")
     (synopsis "Primitive memory-related operations")
