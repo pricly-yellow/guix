@@ -13407,7 +13407,7 @@ string metrics efficiently.")
         (base32 "0445r2nns6009fmq0xbfpyv7jpzwv0snccjdg7hwj4xk4z0cwc1f"))))
     (build-system haskell-build-system)
     (inputs
-     `(("ghc-primitive-bootstrap" ,ghc-primitive-bootstrap)
+     `(("ghc-primitive" ,ghc-primitive)
        ("ghc-random" ,ghc-random)))
     (home-page "https://hackage.haskell.org/package/tf-random")
     (synopsis "High-quality splittable pseudorandom number generator")
