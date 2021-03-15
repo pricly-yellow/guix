@@ -11224,7 +11224,7 @@ the project's home page}.")
 (define-public ghc-resolv
   (package
     (name "ghc-resolv")
-    (version "0.1.1.2")
+    (version "0.1.2.0")
     (source
      (origin
        (method url-fetch)
@@ -11233,17 +11233,11 @@ the project's home page}.")
              version ".tar.gz"))
        (sha256
         (base32
-         "0wczdy3vmpfcfwjn1m95bygc5d83m97xxmavhdvy5ayn8c402fp4"))))
+         "0wa6wsh6i52q4ah2z0hgzlks325kigch4yniz0y15nw4skxbm8l1"))))
     (build-system haskell-build-system)
     (arguments
-     `(#:phases
-       (modify-phases %standard-phases
-         (add-before 'configure 'update-constraints
-           (lambda _
-             (substitute* "resolv.cabal"
-               (("tasty         >= 1\\.1     && < 1\\.2")
-                "tasty         >= 1.1     && < 1.3"))
-             #t)))))
+      `(#:cabal-revision
+        ("1" "19pm4cg28viyl7r0viz4wfmm9w4nqxkjlb6kknfqcajjqmdacqad")))
     (inputs
      `(("ghc-base16-bytestring" ,ghc-base16-bytestring)))
     (native-inputs
