@@ -15572,3 +15572,29 @@ compression ratios.")
     (synopsis "Dec type")
     (description "This package provides a Dec type.")
     (license license:bsd-3)))
+
+(define-public ghc-singleton-bool
+  (package
+    (name "ghc-singleton-bool")
+    (version "0.1.5")
+    (outputs '("out" "static" "doc"))
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/singleton-bool/singleton-bool-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32 "17w9vv6arn7vvc7kykqcx81q2364ji43khrryl27r1cjx9yxapa0"))))
+    (build-system haskell-build-system)
+    (arguments
+     `(#:cabal-revision
+       ("3" "11rhzpy4xiry39bbxzwrqff75f0f4g7z0vkr3v9l8rv3w40jlf7x")))
+    (inputs
+      `(("ghc-dec" ,ghc-dec)))
+    (home-page "https://github.com/phadej/singleton-bool")
+    (synopsis "Type level booleans")
+    (description "Singletons package provides similar functionality, but it has
+tight dependency constraints.")
+    (license license:bsd-3)))
