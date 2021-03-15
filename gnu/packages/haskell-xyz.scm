@@ -28,6 +28,7 @@
 ;;; Copyright © 2020 Alexandru-Sergiu Marton <brown121407@member.fsf.org>
 ;;; Copyright © 2020 Carlo Holl <carloholl@gmail.com>
 ;;; Copyright © 2020 Christopher Lemmer Webber <cwebber@dustycloud.org>
+;;; Copyright © 2021 Danila Kryukov <pricly_yellow@dismail.de>
 ;;;
 ;;; This file is part of GNU Guix.
 ;;;
@@ -15550,4 +15551,24 @@ provides access to the full zlib feature set.")
 Zstandard compression algorithm, a fast lossless compression algorithm
 targeting real-time compression scenarios at zlib-level and better
 compression ratios.")
+    (license license:bsd-3)))
+
+(define-public ghc-dec
+  (package
+    (name "ghc-dec")
+    (version "0.0.4")
+    (outputs '("out" "static" "doc"))
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/dec/dec-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32 "0yslffafmqfkvhcw2arpc53hfmn1788z85ss9lxnbclr29lbvzgc"))))
+    (build-system haskell-build-system)
+    (home-page "https://github.com/phadej/vec")
+    (synopsis "Dec type")
+    (description "This package provides a Dec type.")
     (license license:bsd-3)))
