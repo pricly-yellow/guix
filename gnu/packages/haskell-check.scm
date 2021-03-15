@@ -13,6 +13,7 @@
 ;;; Copyright © 2019 Timothy Sample <samplet@ngyro.com>
 ;;; Copyright © 2020 John Soo <jsoo1@asu.edu>
 ;;; Copyright © 2020 Carlo Holl <carloholl@gmail.com>
+;;; Copyright © 2021 Danila Kryukov <pricly_yellow@dismail.de>
 ;;;
 ;;; This file is part of GNU Guix.
 ;;;
@@ -437,6 +438,45 @@ development.")
     (synopsis "Common quickcheck instances")
     (description "This package provides QuickCheck instances for types
 provided by the Haskell Platform.")
+    (license license:bsd-3)))
+
+(define-public ghc-quickcheck-classes-base
+  (package
+    (name "ghc-quickcheck-classes-base")
+    (version "0.6.1.0")
+    (outputs '("out" "static" "doc"))
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+              "https://hackage.haskell.org/package/"
+              "quickcheck-classes-base/quickcheck-classes-base-"
+              version
+              ".tar.gz"))
+       (sha256
+        (base32
+         "0yzljsy74njmbav90hgraxhjx0l86zggakfw0j3k7maz9376jvax"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-quickcheck" ,ghc-quickcheck)
+       ("ghc-base-orphans" ,ghc-base-orphans)
+       ("ghc-semigroups" ,ghc-semigroups)
+       ("ghc-bifunctors" ,ghc-bifunctors)
+       ("ghc-contravariant" ,ghc-contravariant)
+       ("ghc-fail" ,ghc-fail)
+       ("ghc-tagged" ,ghc-tagged)))
+    (home-page
+     "https://github.com/andrewthad/quickcheck-classes")
+    (synopsis "Provides laws for typeclasses from base")
+    (description "This libary is a minimal variant of quickcheck-classes that
+only provides laws for typeclasses from base.  The main purpose of splitting
+this out is so that primitive can depend on quickcheck-classes-base in its test
+suite, avoiding the circular dependency that arises if quickcheck-classes is
+used instead.  This library provides QuickCheck properties to ensure that
+typeclass instances adhere to the set of laws that they are supposed to.  There
+are other libraries that do similar things, such as genvalidity-hspec and
+checkers.  This library differs from other solutions by not introducing any new
+typeclasses that the user needs to learn.")
     (license license:bsd-3)))
 
 (define-public ghc-quickcheck-unicode
