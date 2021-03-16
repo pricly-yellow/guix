@@ -638,7 +638,7 @@ reporting and test statistics output.")
     (build-system haskell-build-system)
     (arguments
      `(#:cabal-revision
-       ("1" "1vmpk70h1594h9s216d3ngkb399fpny1d3sh4gg0vrc75p4as68d")))
+       ("3" "0mglqfimla4vvv80mg08aj76zf4993wmngqlirh05h8i9nmgv6lh")))
     (inputs
      `(("ghc-extensible-exceptions" ,ghc-extensible-exceptions)
        ("ghc-quickcheck" ,ghc-quickcheck)
