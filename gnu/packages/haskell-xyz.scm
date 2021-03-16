@@ -11153,7 +11153,7 @@ inspired by libtre.")
 (define-public ghc-repline
   (package
     (name "ghc-repline")
-    (version "0.2.0.0")
+    (version "0.4.0.0")
     (source
      (origin
        (method url-fetch)
@@ -11163,32 +11163,17 @@ inspired by libtre.")
              ".tar.gz"))
        (sha256
         (base32
-         "1ph21kbbanlcs8n5lwk16g9vqkb98mkbz5mzwrp8j2rls2921izc"))))
+         "1dspwi28krinkxdd7waq4y6plz0dfmzz72885p9pcqp1r14qrhj3"))))
     (build-system haskell-build-system)
+    (inputs
+     `(("ghc-exceptions" ,ghc-exceptions)
+       ("ghc-haskeline" ,ghc-haskeline-0.8)))
     (home-page "https://github.com/sdiehl/repline")
     (synopsis "Haskeline wrapper for GHCi-like REPL interfaces")
     (description
      "Haskeline wrapper for GHCi-like REPL interfaces.  Composable with
 normal mtl transformers.")
     (license license:expat)))
-
-(define-public ghc-repline-0.3
-  (package
-    (inherit ghc-repline)
-    (version "0.3.0.0")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (string-append
-             "mirror://hackage/package/repline/repline-"
-             version
-             ".tar.gz"))
-       (sha256
-        (base32
-         "0niihfyggg2qisadg7w49cr5k5qyyynia93iip0ng2bbmzwi88g8"))))
-    (inputs
-     `(("ghc-exceptions" ,ghc-exceptions)
-       ("ghc-haskeline" ,ghc-haskeline-0.8)))))
 
 (define-public ghc-rerebase
   (package

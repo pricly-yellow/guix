@@ -1,5 +1,6 @@
 ;;; Copyright © 2020 John Soo <jsoo1@asu.edu>
 ;;; Copyright © 2020 Tobias Geerinckx-Rice <me@tobias.gr>
+;;; Copyright © 2021 Danila Kryukov <pricly_yellow@dismail.de>
 ;;;
 ;;; This file is part of GNU Guix.
 ;;;
@@ -30,14 +31,14 @@
 (define-public dhall
   (package
     (name "dhall")
-    (version "1.32.0")
+    (version "1.38.0")
     (source
      (origin
        (method url-fetch)
        (uri (string-append "https://hackage.haskell.org/package/dhall/dhall-"
                            version ".tar.gz"))
        (sha256
-        (base32 "1imj0bh5365pdizvjbw2wqz0g9hakigf1zm4fr6379qdchxpp90p"))))
+        (base32 "0ifxi9i7ply640s2cgljjczvmblgz0ryp2p9yxgng3qm5ai58229"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-aeson" ,ghc-aeson)
@@ -66,7 +67,8 @@
        ("ghc-prettyprinter-ansi-terminal" ,ghc-prettyprinter-ansi-terminal)
        ("ghc-pretty-simple" ,ghc-pretty-simple)
        ("ghc-profunctors" ,ghc-profunctors)
-       ("ghc-repline" ,ghc-repline-0.3)
+       ("ghc-repline" ,ghc-repline)
+       ("ghc-mmorph" ,ghc-mmorph)
        ("ghc-serialise" ,ghc-serialise)
        ("ghc-scientific" ,ghc-scientific)
        ("ghc-text-manipulate" ,ghc-text-manipulate)
@@ -88,6 +90,7 @@
        ("ghc-special-values" ,ghc-special-values)
        ("ghc-spoon" ,ghc-spoon)
        ("ghc-tasty" ,ghc-tasty)
+       ("ghc-tasty-silver" ,ghc-tasty-silver)
        ("ghc-tasty-expected-failure" ,ghc-tasty-expected-failure)
        ("ghc-tasty-hunit" ,ghc-tasty-hunit)
        ("ghc-tasty-quickcheck" ,ghc-tasty-quickcheck)
