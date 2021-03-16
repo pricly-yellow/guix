@@ -157,6 +157,45 @@ output file should be identical to the corresponding @code{golden} file, which
 contains the correct result for the test.")
     (license license:expat)))
 
+(define-public ghc-tasty-silver
+  (package
+    (name "ghc-tasty-silver")
+    (version "3.1.15")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/tasty-silver/tasty-silver-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "07iiaw5q5jb6bxm5ys1s6bliw0qxsqp100awzxwkwfia03i1iz8z"))))
+    (build-system haskell-build-system)
+    (arguments
+     `(#:cabal-revision
+       ("1" "1pxwixy274w0z99zsx0aywcxcajnpgan3qri81mr1wb6afxrq8d6")))
+    (inputs
+     `(("ghc-temporary" ,ghc-temporary)
+       ("ghc-tasty" ,ghc-tasty)
+       ("ghc-optparse-applicative" ,ghc-optparse-applicative)
+       ("ghc-tagged" ,ghc-tagged)
+       ("ghc-async" ,ghc-async)
+       ("ghc-process-extras" ,ghc-process-extras)
+       ("ghc-regex-tdfa" ,ghc-regex-tdfa)
+       ("ghc-semigroups" ,ghc-semigroups)
+       ("ghc-tasty-hunit" ,ghc-tasty-hunit)))
+    (home-page
+     "https://github.com/phile314/tasty-silver")
+    (synopsis "Fork of tasty-golden")
+    (description
+     "This package provides a fancy test runner and  support for
+@code{golden testing}.  A @dfn{golden test} is an IO action that writes its
+result to a file.  To pass the test, this output file should be identical to
+the corresponding @code{golden} file, which contains the correct result for
+the test.")
+    (license license:expat)))
+
 (define-public ghc-tasty
   (package
     (name "ghc-tasty")
