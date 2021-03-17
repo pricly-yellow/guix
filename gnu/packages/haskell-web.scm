@@ -2077,7 +2077,7 @@ HTML responses using CSS selectors.")
 (define-public ghc-wai-app-static
   (package
     (name "ghc-wai-app-static")
-    (version "3.1.7.1")
+    (version "3.1.7.2")
     (source
      (origin
        (method url-fetch)
@@ -2086,7 +2086,7 @@ HTML responses using CSS selectors.")
                            version ".tar.gz"))
        (sha256
         (base32
-         "10k6jb450p89r6dgpnwh428gg0wfw2qbx9n126jkvbchcjr1f4v8"))))
+         "138gd5482psq0wbm8s1az672lksi7vbavq6ayiyjkliivf6xpry8"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-wai" ,ghc-wai)
@@ -2112,7 +2112,7 @@ HTML responses using CSS selectors.")
        ("ghc-mockery" ,ghc-mockery)))
     (arguments
      `(#:cabal-revision
-       ("1" "0bkmml30rzifvb7nxddj3pxczk0kniahra19mjn0qrkzy1n5752p")))
+       ("1" "1q7zwjasysgbp9rdp75535igd7s6mhi2bnl4pzsn6vbyfw3qnsxd")))
     (home-page "https://www.yesodweb.com/book/web-application-interface")
     (synopsis "WAI application for static serving")
     (description "This package provides a Web Application
