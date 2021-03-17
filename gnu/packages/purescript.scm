@@ -1,6 +1,7 @@
 ;;; GNU Guix --- Functional package management for GNU
 ;;; Copyright © 2020 John Soo <jsoo1@asu.edu>
 ;;; Copyright © 2020 Bonface Munyoki Kilyungi <bonfacemunyoki@gmail.com>
+;;; Copyright © 2021 Danila Kryukov <pricly_yellow@dismail.de>
 ;;;
 ;;; This file is part of GNU Guix.
 ;;;
@@ -45,10 +46,71 @@
         (base32
          "138xpxdb7x62lpmgmb6b3v3vgdqqvqn4273jaap3mjmc2gla709y"))))))
 
+(define-public purescript-ast
+  (package
+    (name "purescript-ast")
+    (version "0.1.0.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "mirror://hackage/package/purescript-ast/purescript-ast-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "1zwwbdkc5mb3ckc2g15b18j9vp9bksyc1nrlg73w7w0fzqwnqb4g"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-aeson" ,ghc-aeson)
+       ("ghc-base-compat" ,ghc-base-compat)
+       ("ghc-microlens" ,ghc-microlens)
+       ("ghc-protolude" ,ghc-protolude)
+       ("ghc-scientific" ,ghc-scientific)
+       ("ghc-serialise" ,ghc-serialise)
+       ("ghc-vector" ,ghc-vector)))
+    (home-page "https://www.purescript.org/")
+    (synopsis "Purescript abstract syntax tree")
+    (description
+     "Defines the underlying syntax of the PureScript Programming Language.")
+    (license license:bsd-3)))
+
+
+(define-public purescript-cst
+  (package
+    (name "purescript-cst")
+    (version "0.1.0.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "mirror://hackage/package/purescript-cst/purescript-cst-"
+             version
+             ".tar.gz"))
+       (sha256
+        (base32
+         "1h4na5k0lz91i1f49axsgs7zqz6dqdxds5dg0g00wd4wmyd619cc"))))
+    (build-system haskell-build-system)
+    (inputs
+     `(("ghc-dlist" ,ghc-dlist)
+       ("purescript-ast" ,purescript-ast)
+       ("ghc-happy" ,ghc-happy-1.19.9)
+       ("ghc-scientific" ,ghc-scientific)
+       ("ghc-semigroups" ,ghc-semigroups)))
+    (native-inputs
+     `(("ghc-tasty" ,ghc-tasty)
+       ("ghc-tasty-golden" ,ghc-tasty-golden)
+       ("ghc-tasty-hspec" ,ghc-tasty-hspec)))
+    (home-page "https://www.purescript.org/")
+    (synopsis "Purescript concrete syntax tree")
+    (description
+     "The surface syntax of the PureScript Programming Language.")
+    (license license:bsd-3)))
+
 (define-public purescript
   (package
     (name "purescript")
-    (version "0.13.8")
+    (version "0.14.0")
     (source
      (origin
        (method url-fetch)
@@ -58,11 +120,13 @@
              ".tar.gz"))
        (sha256
         (base32
-         "0sh9z3ir3jiwmi5h95v9p7j746xxidg1hrxha89c0zl6vr4sq7vh"))
+         "1bv68y91l6fyjidfp71djiv2lijn5d55j4szlg77yvsw164s6vk0"))
        (patches (search-patches "purescript-relax-dependencies.patch"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-glob" ,ghc-glob)
+       ("purescript-ast" ,purescript-ast)
+       ("purescript-cst" ,purescript-cst)
        ("ghc-aeson" ,ghc-aeson)
        ("ghc-aeson-better-errors" ,ghc-aeson-better-errors)
        ("ghc-aeson-pretty" ,ghc-aeson-pretty)
@@ -80,7 +144,7 @@
        ("ghc-edit-distance" ,ghc-edit-distance)
        ("ghc-file-embed" ,ghc-file-embed)
        ("ghc-fsnotify" ,ghc-fsnotify)
-       ("ghc-happy" ,ghc-happy)
+       ("ghc-happy" ,ghc-happy-1.19.9)
        ("ghc-language-javascript" ,ghc-language-javascript)
        ("ghc-lifted-async" ,ghc-lifted-async)
        ("ghc-lifted-base" ,ghc-lifted-base)
@@ -117,7 +181,7 @@
        ("ghc-warp" ,ghc-warp)
        ("ghc-websockets" ,ghc-websockets)))
     (native-inputs
-     `(("ghc-happy" ,ghc-happy-1.19.9) ; build fails with 1.19.12
+     `(("ghc-happy" ,ghc-happy-1.19.9)
        ("ghc-hunit" ,ghc-hunit)
        ("ghc-hspec" ,ghc-hspec)
        ("hspec-discover" ,hspec-discover)
@@ -127,6 +191,7 @@
     (arguments
      `(;; Tests require npm
        #:tests? #f
+       #:haddock? #f ;; haddock crash
        #:configure-flags '("--flags=release")))
     (home-page "https://www.purescript.org/")
     (synopsis "Haskell inspired programming language compiling to JavaScript")
