@@ -3272,7 +3272,7 @@ declarative drawing.")
 (define-public ghc-diagrams-lib
   (package
     (name "ghc-diagrams-lib")
-    (version "1.4.2.3")
+    (version "1.4.3")
     (source
      (origin
        (method url-fetch)
@@ -3280,7 +3280,7 @@ declarative drawing.")
                            "diagrams-lib/diagrams-lib-" version ".tar.gz"))
        (sha256
         (base32
-         "175yzi5kw4yd8ykdkpf64q85c7j3p89l90m3h6qcsx9ipv6av9r5"))))
+         "0gqrcyjyp3p78vmfxvhfjbkkl2xvwcv3qyyinbdcmalb5zb8vyy6"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-semigroups" ,ghc-semigroups)
@@ -3313,8 +3313,8 @@ declarative drawing.")
        ("ghc-numeric-extras" ,ghc-numeric-extras)))
     (arguments
      `(#:cabal-revision
-       ("3" "157y2qdsh0aczs81vzlm377mks976mpv6y3aqnchwsnr7apzp8ai")))
-    (home-page "https://archives.haskell.org/projects.haskell.org/diagrams/")
+       ("1" "0cqhqm2nz2ls00pfhx8hz6z6g17qhl380h24wp4d6l5msiw7gxq4")))
+    (home-page "http://diagrams.github.io")
     (synopsis "Embedded domain-specific language for declarative graphics")
     (description "Diagrams is a flexible, extensible embedded
 domain-specific language (EDSL) for creating graphics of many types.
