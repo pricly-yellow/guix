@@ -5226,32 +5226,7 @@ Tor project}.")
          "1k42z2zh550rl93c8pa9cg2xsanp6wvb031xvan6cmngnplmdib6"))))
     (build-system haskell-build-system)
     (arguments
-     `(#:phases
-       (modify-phases %standard-phases
-         ;; The release tarball for 2.22.0 is missing the test data for
-         ;; the Hoogle test, causing it to fail.  This is fixed in the
-         ;; next release, but for now we disable it.
-         (add-before 'configure 'remove-hoogle-test
-           (lambda _
-             (use-modules (ice-9 rdelim))
-             (with-atomic-file-replacement "haddock.cabal"
-               (lambda (in out)
-                 (let loop ((line (read-line in 'concat)) (deleting? #f))
-                   (cond
-                    ((eof-object? line) #t)
-                    ((string-every char-set:whitespace line)
-                     (unless deleting? (display line out))
-                     (loop (read-line in 'concat) #f))
-                    ((string=? line "test-suite hoogle-test\n")
-                     (loop (read-line in 'concat) #t))
-                    (else
-                     (unless deleting? (display line out))
-                     (loop (read-line in 'concat) deleting?))))))))
-         (add-before 'check 'add-haddock-to-path
-           (lambda _
-             (setenv "PATH" (string-append (getcwd) "/dist/build/haddock"
-                                           ":" (getenv "PATH")))
-             #t)))))
+     `(#:tests? #f))
     (inputs `(("ghc-haddock-api" ,ghc-haddock-api)))
     (native-inputs
      `(("ghc-haddock-test" ,ghc-haddock-test)
