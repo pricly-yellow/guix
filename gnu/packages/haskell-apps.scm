@@ -933,7 +933,7 @@ output, stderr, and exit status.")
 (define-public stylish-haskell
   (package
     (name "stylish-haskell")
-    (version "0.9.2.2")
+    (version "0.9.4.4")
     (source
      (origin
        (method url-fetch)
@@ -943,7 +943,7 @@ output, stderr, and exit status.")
          "stylish-haskell-" version ".tar.gz"))
        (sha256
         (base32
-         "1zs624xqp6j8vrl6pfv18dm8vz8hvz25grri65ximxhcizgwhnax"))))
+         "1399q6chjhnyf2vifmwp3cw8253ra762wm5873ndjjd2z6da8gg2"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-aeson" ,ghc-aeson)
