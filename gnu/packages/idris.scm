@@ -47,10 +47,12 @@
               (sha256
                (base32
                 "1pachwc6msw3n1mz2z1r1w6h518w9gbhdvbaa5vi1qp3cn3wm6q4"))
-              (patches (search-patches "idris-disable-test.patch"))))
+              ;;(patches (search-patches "idris-disable-test.patch"))
+              ))
     (build-system haskell-build-system)
     (native-inputs                      ;For tests
      `(("perl" ,perl)
+       ("ghc-optparse-applicative" ,ghc-optparse-applicative-0.15.1)
        ("ghc-cheapskate" ,ghc-cheapskate)
        ("ghc-tasty" ,ghc-tasty)
        ("ghc-tasty-golden" ,ghc-tasty-golden)
@@ -74,7 +76,7 @@
        ("ghc-libffi" ,ghc-libffi)
        ("ghc-megaparsec" ,ghc-megaparsec)
        ("ghc-network" ,ghc-network)
-       ("ghc-optparse-applicative" ,ghc-optparse-applicative)
+       ("ghc-optparse-applicative" ,ghc-optparse-applicative-0.15.1)
        ("ghc-regex-tdfa" ,ghc-regex-tdfa)
        ("ghc-safe" ,ghc-safe)
        ("ghc-split" ,ghc-split)

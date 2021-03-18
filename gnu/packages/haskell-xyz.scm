@@ -3295,7 +3295,7 @@ declarative drawing.")
        ("ghc-intervals" ,ghc-intervals)
        ("ghc-lens" ,ghc-lens)
        ("ghc-tagged" ,ghc-tagged)
-       ("ghc-optparse-applicative" ,ghc-optparse-applicative)
+       ("ghc-optparse-applicative" ,ghc-optparse-applicative-0.15.1)
        ("ghc-juicypixels" ,ghc-juicypixels)
        ("ghc-hashable" ,ghc-hashable)
        ("ghc-linear" ,ghc-linear)
@@ -3378,7 +3378,7 @@ and cyclic tridiagonal linear systems.")
        ("ghc-split" ,ghc-split)
        ("ghc-lens" ,ghc-lens)
        ("ghc-hashable" ,ghc-hashable)
-       ("ghc-optparse-applicative" ,ghc-optparse-applicative)
+       ("ghc-optparse-applicative" ,ghc-optparse-applicative-0.15.1)
        ("ghc-semigroups" ,ghc-semigroups)))
     (arguments
      `(#:cabal-revision
@@ -9020,7 +9020,7 @@ easily work with command-line options.")
 (define-public ghc-optparse-applicative
   (package
     (name "ghc-optparse-applicative")
-    (version "0.14.3.0")
+    (version "0.16.1.0")
     (source
      (origin
        (method url-fetch)
@@ -9029,11 +9029,8 @@ easily work with command-line options.")
              "/optparse-applicative-" version ".tar.gz"))
        (sha256
         (base32
-         "0qvn1s7jwrabbpmqmh6d6iafln3v3h9ddmxj2y4m0njmzq166ivj"))))
+         "16nnrkmgd28h540f17nb017ziq4gbzgkxpdraqicaczkca1jf1b2"))))
     (build-system haskell-build-system)
-    (arguments
-     `(#:cabal-revision
-       ("2" "1a08dqjly1xy730f6jf45frr8g8gap0n1vg9b0mpzpydv0kgzmrp")))
     (inputs
      `(("ghc-transformers-compat" ,ghc-transformers-compat)
        ("ghc-ansi-wl-pprint" ,ghc-ansi-wl-pprint)))
@@ -9044,6 +9041,31 @@ easily work with command-line options.")
     (description "This package provides utilities and combinators for parsing
 command line options in Haskell.")
     (license license:bsd-3)))
+
+;; needed for
+;; purescript
+;; idris
+;; stylish-haskell
+;; ghc-diagrams-lib
+;; ghc-diagrams-svg
+(define-public ghc-optparse-applicative-0.15.1
+  (package
+    (inherit ghc-optparse-applicative)
+    (version "0.15.1.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://hackage.haskell.org/package/optparse-applicative"
+             "/optparse-applicative-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1ws6y3b3f6hsgv0ff0yp6lw4hba1rps4dnvry3yllng0s5gngcsd"))))
+    (arguments
+     `(#:tests? #f
+       #:cabal-revision
+       ("1"
+        "0zmhqkd96v2z1ilhqdkd9z4jgsnsxb8yi2479ind8m5zm9363zr9")))))
 
 (define-public ghc-jira-wiki-markup
   (package
@@ -9150,8 +9172,8 @@ require aeson
         ,ghc-quickcheck-instances)))
     (arguments
      `(#:cabal-revision
-       ("2"
-        "17cb7p0qywf2dsrq3g8qb3ssknd9wl5k0nc2pxz9gc3l8rxpkw51")))
+       ("3"
+        "1wjy98ihhipzr34b310sgjjq3cc12aydhckbrgr21kxkzwglm4nv")))
     (home-page "https://hackage.haskell.org/package/text-short")
     (synopsis "Memory-efficient representation of Unicode text strings")
     (description "This package provides the @code{ShortText} type which
@@ -14006,7 +14028,7 @@ statically known size.")
 (define-public ghc-turtle
   (package
     (name "ghc-turtle")
-    (version "1.5.15")
+    (version "1.5.21")
     (source
      (origin
        (method url-fetch)
@@ -14016,7 +14038,7 @@ statically known size.")
              ".tar.gz"))
        (sha256
         (base32
-         "0yckgsc2a4g5x867gni80ldp226bsnhncfbil4ql6v2zwm4r8p7f"))))
+         "0sb1xnmvqby1lcg3p92v0nkpxnm2qk0gcn41mxxgp3xdm24vkz36"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-ansi-wl-pprint" ,ghc-ansi-wl-pprint)
@@ -14037,9 +14059,6 @@ statically known size.")
     (native-inputs
      `(("ghc-doctest" ,ghc-doctest)
        ("ghc-fail" ,ghc-fail)))
-    (arguments
-     `(#:cabal-revision
-       ("1" "02q1rv7zx31xz9wnmcqwd4w3iw7623p07iyi21zr0cqlignic5pg")))
     (home-page
      "http://hackage.haskell.org/package/turtle")
     (synopsis "Shell programming, Haskell-style")

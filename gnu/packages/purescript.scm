@@ -175,7 +175,7 @@
        ("ghc-ansi-wl-pprint" ,ghc-ansi-wl-pprint)
        ("ghc-http-types" ,ghc-http-types)
        ("ghc-network" ,ghc-network)
-       ("ghc-optparse-applicative" ,ghc-optparse-applicative)
+       ("ghc-optparse-applicative" ,ghc-optparse-applicative-0.15.1)
        ("ghc-wai" ,ghc-wai)
        ("ghc-wai-websockets" ,ghc-wai-websockets)
        ("ghc-warp" ,ghc-warp)
