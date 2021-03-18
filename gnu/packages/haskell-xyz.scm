@@ -3357,7 +3357,7 @@ and cyclic tridiagonal linear systems.")
 (define-public ghc-diagrams-svg
   (package
     (name "ghc-diagrams-svg")
-    (version "1.4.2")
+    (version "1.4.3")
     (source
      (origin
        (method url-fetch)
@@ -3365,7 +3365,7 @@ and cyclic tridiagonal linear systems.")
                            "diagrams-svg/diagrams-svg-" version ".tar.gz"))
        (sha256
         (base32
-         "1lnyxx45yawqas7hmvvannwaa3ycf1l9g40lsl2m8sl2ja6vcmal"))))
+         "1ysv6cz0fngrndl4wjmw4hrdj2rik5fxa1dkxzwnlgf1xwpvxgk8"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-base64-bytestring" ,ghc-base64-bytestring)
@@ -3382,8 +3382,8 @@ and cyclic tridiagonal linear systems.")
        ("ghc-semigroups" ,ghc-semigroups)))
     (arguments
      `(#:cabal-revision
-       ("2" "15sn85xaachw4cj56w61bjcwrbf4qmnkfl8mbgdapxi5k0y4f2qv")))
-    (home-page "https://archives.haskell.org/projects.haskell.org/diagrams/")
+       ("2" "07149rnzc8787mwh0aac5hfg9f41dxgs5wc9yv60fmgk9h5qnw1n")))
+    (home-page "http://diagrams.github.io")
     (synopsis "Scalable Vector Grpahics backend for the diagrams framework")
     (description "This package provides a modular backend for rendering
 diagrams created with the diagrams embedded domain-specific
