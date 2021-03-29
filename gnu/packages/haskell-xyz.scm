@@ -15118,7 +15118,7 @@ modernized interface.")
 (define-public ghc-wl-pprint-text
   (package
     (name "ghc-wl-pprint-text")
-    (version "1.2.0.0")
+    (version "1.2.0.1")
     (source
      (origin
        (method url-fetch)
@@ -15127,7 +15127,7 @@ modernized interface.")
              version ".tar.gz"))
        (sha256
         (base32
-         "0g3w92rad6x5appfb22rbzcas2ix2h0hy91sdxhq8a4a5cnlrpa0"))))
+         "030ckgzz14sv2c317g4j5g68hyq9xi40cmv0apwclw6sc6xgsvly"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-base-compat" ,ghc-base-compat)))
