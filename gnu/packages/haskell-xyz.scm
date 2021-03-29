@@ -13628,7 +13628,7 @@ function which generates instances.")
 (define-public ghc-time-compat
   (package
     (name "ghc-time-compat")
-    (version "1.9.2.2")
+    (version "1.9.5")
     (source
      (origin
        (method url-fetch)
@@ -13636,7 +13636,7 @@ function which generates instances.")
                            "time-compat/time-compat-" version ".tar.gz"))
        (sha256
         (base32
-         "05va0rqs759vbridbcl6hksp967j9anjvys8vx72fnfkhlrn2s52"))))
+         "19p3056i6kh8lgcdsnwsh8pj80xyi23kmw9n7hmdacczs5kv49ii"))))
     (build-system haskell-build-system)
     (inputs
      `(("ghc-base-orphans" ,ghc-base-orphans)))
@@ -13650,7 +13650,7 @@ function which generates instances.")
        ("ghc-tasty-quickcheck" ,ghc-tasty-quickcheck)))
     (arguments
      `(#:cabal-revision
-       ("1" "0k8ph4sydaiqp8dav4if6hpiaq8h1xsr93khmdr7a1mmfwdxr64r")))
+       ("1" "1f6r8cyfgzpfg9nrsqbf99pi44fyds9wcmgwxb4s0zmlb5dbv1m5")))
     (home-page "https://github.com/phadej/time-compat")
     (synopsis "Compatibility package for time")
     (description "This package tries to compat as many @code{time}
