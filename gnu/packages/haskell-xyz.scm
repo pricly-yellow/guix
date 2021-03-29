@@ -221,7 +221,10 @@ for Haskell.")
         (base32
          "1j13gykv4ryvmr14w5blz0nnpdb4p0hpa27wahw3mhb1lwdr8hz0"))))
     (build-system haskell-build-system)
-    (arguments `(#:tests? #f))  ;  FIXME: Tests require QuickCheck >= 2.10
+    (arguments
+     `(#:cabal-revision
+       ("6" "18ni5j2zvn7qfdama9j1s84kz9ylsnjmi5ynbq68mpri5wimm448")))
+    ;;(arguments `(#:tests? #f))  ;  FIXME: Tests require QuickCheck >= 2.10
     (inputs `(("ghc-base-compat" ,ghc-base-compat)
               ("ghc-aeson" ,ghc-aeson)
               ("ghc-attoparsec" ,ghc-attoparsec)
@@ -235,6 +238,12 @@ for Haskell.")
               ("ghc-tagged" ,ghc-tagged)
               ("ghc-semigroups" ,ghc-semigroups)
               ("ghc-nats" ,ghc-nats)))
+    (native-inputs
+      `(("ghc-quickcheck" ,ghc-quickcheck)
+        ("ghc-quickcheck-instances" ,ghc-quickcheck-instances)
+        ("ghc-tasty" ,ghc-tasty)
+        ("ghc-tasty-hunit" ,ghc-tasty-hunit)
+        ("ghc-tasty-quickcheck" ,ghc-tasty-quickcheck)))
     (home-page "https://github.com/phadej/aeson-compat")
     (synopsis "Compatibility layer for ghc-aeson")
     (description "This Haskell package provides compatibility layer for
