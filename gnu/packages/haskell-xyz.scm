@@ -13937,6 +13937,9 @@ but also need those types.")
         (base32
          "1156nbqn0pn9lp4zjsy4vv5g5wmy4zxwmbqdgvq349rydynh3ng3"))))
     (build-system haskell-build-system)
+    (arguments
+     `(#:cabal-revision
+       ("6" "1wqfac660m9ggv6r85a7y29mk947hki9iydy124vdwcqzichja0d")))
     (inputs
      `(("ghc-aeson" ,ghc-aeson)
        ("ghc-ansi-wl-pprint" ,ghc-ansi-wl-pprint)
