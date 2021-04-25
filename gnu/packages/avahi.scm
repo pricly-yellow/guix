@@ -31,6 +31,11 @@
   #:use-module (gnu packages libdaemon)
   #:use-module (gnu packages libevent)
   #:use-module (gnu packages linux)
+  #:use-module (gnu packages python)
+  #:use-module (gnu packages python-xyz)
+  #:use-module (gnu packages qt)
+  #:use-module (gnu packages gtk)
+  #:use-module (gnu packages man)
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages xml))
 
@@ -87,6 +92,53 @@
 network.  It is an implementation of the mDNS (for \"Multicast DNS\") and
 DNS-SD (for \"DNS-Based Service Discovery\") protocols.")
     (license lgpl2.1+)))
+
+(define-public avahi-full
+  (package/inherit avahi
+    (name "avahi-full")
+    (build-system gnu-build-system)
+    (arguments
+     '(#:configure-flags '("--with-distro=none"
+                           "--disable-static"
+                           "--localstatedir=/var" ; for the DBus socket
+                           "--disable-mono"
+                           "--enable-python"
+                           "--disable-doxygen-doc"
+                           "--enable-xmltoman"
+                           "--enable-tests"
+                           "--disable-qt4" 
+                           "--enable-gobject"
+                           "--disable-gtk" "--enable-gtk3"
+                           "--enable-compat-libdns_sd")
+       #:phases
+        (modify-phases %standard-phases
+         (add-after 'unpack 'fix-build
+          (lambda* (#:key inputs #:allow-other-keys)
+           (copy-file (assoc-ref inputs "build-db")
+                      "service-type-database/build-db")
+           #t)))))
+    (inputs
+     `(("glib" ,glib)
+       ("gtk3" ,gtk+)
+       ("qtbase" ,qtbase)
+       ; this file not include in tarball
+       ; of version 0.8
+       ("build-db"
+        ,(origin
+           (method url-fetch)
+           (uri (string-append
+                 "https://raw.githubusercontent.com/lathiat/avahi/v"
+                  "0.8" "/service-type-database/build-db"))
+           (sha256
+            (base32
+             "0z7dk2fr80bvyhgr5kd2vnqkri1vxmymp91l441snr64rj4divc3"))))
+       ("xmltoman" ,xmltoman)
+       ,@(package-inputs avahi)))
+    (native-inputs
+      `(("python" ,python)
+       ("python-pygobject" ,python-pygobject)
+       ("python-dbus" ,python-dbus)
+       ,@(package-native-inputs avahi)))))
 
 (define-public nss-mdns
   (package
